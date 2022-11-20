@@ -1,4 +1,5 @@
 #include "../include/JoinPolicy.h"
+#include "../include/Simulation.h"
 
 Offer MandatesJoinPolicy::join(Simulation& sim, const vector<Offer>& offers)
 {

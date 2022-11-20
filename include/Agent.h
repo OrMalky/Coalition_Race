@@ -1,7 +1,6 @@
 #pragma once
 
 #include <vector>
-#include "Simulation.h"
 #include "SelectionPolicy.h"
 #include "Offer.h"
 

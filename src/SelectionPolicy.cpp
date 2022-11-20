@@ -1,4 +1,5 @@
 #include "../include/SelectionPolicy.h"
+#include "../include/Simulation.h"
 
 int MandatesSelectionPolicy::select(Simulation& sim, const Agent& agent)
 {

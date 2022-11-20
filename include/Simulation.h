@@ -11,7 +11,6 @@ class Coalition;
 class Agent;
 class Party;
 class Coalition;
-class Graph;
 
 using std::string;
 using std::vector;

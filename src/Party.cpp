@@ -1,8 +1,24 @@
 #include "../include/Party.h"
+#include "../include/Simulation.h"
 
 Party::Party(int id, string name, int mandates, JoinPolicy *jp) : mId(id), mName(name), mMandates(mandates), mJoinPolicy(jp), mState(Waiting), timer(3)
 {
     // You can change the implementation of the constructor, but not the signature!
+}
+
+Party::Party(const Party& toClone) : mId(toClone.getGetId()), mName(toClone.getName()), mMandates(toClone.getMandates()), mState(Waiting), timer(3)
+{
+    mJoinPolicy = toClone.getJoinPolicy();
+}
+
+Party& Party::operator=(const Party& other)
+{
+    mId = other.getGetId();
+    mName = other.getName();
+    mMandates = other.getMandates();
+    mJoinPolicy = other.getJoinPolicy();
+    timer = 3;
+    mState = Waiting;
 }
 
 State Party::getState() const
