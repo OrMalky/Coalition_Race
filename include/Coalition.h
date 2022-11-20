@@ -12,15 +12,15 @@ class Coalition
     public:
         Coalition(int id);
         int getTotalMandates() const;
-        void addParty(Party& party);
+        void addParty(Party* party);
         bool checkOfferedParties(int partyId);
-        void addPartyOffer(Party& party);
-        vector<Party&> getParties();
+        void addPartyOffer(Party* party);
+        const vector<Party*> getParties() const;
         int getId() const;
     
     private:
         int mId;
         int mTotalMandates;
-        vector<Party&> mOfferedParties;
-        vector<Party&> mParties;
+        vector<Party*> mOfferedParties;
+        vector<Party*> mParties;
 };

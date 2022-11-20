@@ -5,28 +5,28 @@ int Coalition::getTotalMandates() const
     return mTotalMandates;
 }
 
-void Coalition::addParty(Party& party)
+void Coalition::addParty(Party* party)
 {
     mParties.push_back(party);
-    mTotalMandates += party.getMandates();
+    mTotalMandates += (*party).getMandates();
 }
 
 bool Coalition::checkOfferedParties(int partyId)
 {
-    for(int p : mOfferedParties)
+    for(Party* p : mOfferedParties)
     {
-        if(p == partyId)
+        if(p->getGetId() == partyId)
             return false;
     }
     return true;
 }
 
-void Coalition::addPartyOffer(Party& party)
+void Coalition::addPartyOffer(Party* party)
 {
     mOfferedParties.push_back(party);
 }
 
-vector<Party&> Coalition::getParties()
+const vector<Party*> Coalition::getParties() const
 {
     return mParties;
 }

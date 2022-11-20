@@ -17,11 +17,11 @@ class JoinPolicy
 class MandatesJoinPolicy : public JoinPolicy
 {
     public:
-        virtual Offer join(Simulation& sim, const vector<Offer>& offers);
+        Offer join(Simulation& sim, const vector<Offer>& offers);
 };
 
 class LastOfferJoinPolicy : public JoinPolicy
 {
     public:
-        virtual Offer join(Simulation& sim, const vector<Offer>& offers);
+        Offer join(Simulation& sim, const vector<Offer>& offers);
 };

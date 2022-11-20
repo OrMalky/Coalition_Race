@@ -6,7 +6,7 @@ bin/cRace: bin/main.o bin/Agent.o bin/Graph.o bin/Parser.o bin/Party.o bin/Simul
 bin/main.o: src/main.cpp src/Simulation.cpp src/Parser.cpp
 	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/main.o src/main.cpp
 
-bin/Agent.o: src/Agent.cpp src/Graph.cpp sec/Coalition.cpp src/SelectionPolicy.cpp
+bin/Agent.o: src/Agent.cpp src/Graph.cpp src/Coalition.cpp src/SelectionPolicy.cpp
 	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Agent.o src/Agent.cpp
 
 bin/Graph.o: src/Graph.cpp src/Party.cpp
@@ -15,7 +15,7 @@ bin/Graph.o: src/Graph.cpp src/Party.cpp
 bin/Parser.o: src/Parser.cpp src/Simulation.cpp src/Agent.cpp src/SelectionPolicy.cpp src/JoinPolicy.cpp
 	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Parser.o src/Parser.cpp
 
-bin/Party.o: src/Party.cpp src/Offer.cpp sec/Simulation.cpp src/JoinPolicy.cpp
+bin/Party.o: src/Party.cpp src/Offer.cpp src/Simulation.cpp src/JoinPolicy.cpp
 	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Party.o src/Party.cpp
 
 bin/Simulation.o: src/Simulation.cpp src/Graph.cpp src/Agent.cpp

@@ -8,17 +8,17 @@ class Simulation;
 class SelectionPolicy
 {
     public:
-        virtual int select(Simulation& sim, const Agent& agent) = 0;
+        virtual int select(Simulation& sim, const Agent& agent);
 };
 
 class MandatesSelectionPolicy: public SelectionPolicy
 {
     public:
-        virtual int select(Simulation& sim, const Agent& agent) = 0;
+        int select(Simulation& sim, const Agent& agent);
 };
 
 class EdgeWeightSelectionPolicy: public SelectionPolicy
 {
     public:
-        virtual int select(Simulation& sim, const Agent& agent) = 0;
+        int select(Simulation& sim, const Agent& agent);
 };

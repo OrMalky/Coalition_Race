@@ -22,6 +22,8 @@ class Party
 {
 public:
     Party(int id, string name, int mandates, JoinPolicy *); 
+    Party(const Party&);
+    Party& operator=(const Party&);
 
     State getState() const;
     void setState(State state);

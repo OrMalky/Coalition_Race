@@ -33,7 +33,7 @@ int Party::getGetId() const
 void Party::joinCoalition(Simulation& sim)
 {
     const Offer& toJoin = mJoinPolicy->join(sim, offers);
-    sim.getCoalition(toJoin.getCoalitionId()).addParty(*this);
+    sim.getCoalition(toJoin.getCoalitionId()).addParty(this);
     sim.cloneAgent(toJoin.getCoalitionId(), mId);
 }
 
