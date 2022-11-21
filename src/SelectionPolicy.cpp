@@ -1,8 +1,10 @@
 #include "../include/SelectionPolicy.h"
 #include "../include/Simulation.h"
+#include <iostream>
 
 int MandatesSelectionPolicy::select(Simulation& sim, const Agent& agent)
 {
+    std::cout << "called policy ok" << std::endl;
     Graph& g = sim.getGraph();
     int mostMandates = 0;
     int bestParty = -1;

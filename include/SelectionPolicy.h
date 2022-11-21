@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include "Graph.h"
 #include "Party.h"
 #include "Agent.h"
@@ -17,15 +18,15 @@ class SelectionPolicy
 class MandatesSelectionPolicy: public SelectionPolicy
 {
     public:
-        MandatesSelectionPolicy(){};
-        int select(Simulation& sim, const Agent& agent);
-        virtual ~MandatesSelectionPolicy() = default;
+        MandatesSelectionPolicy(){std::cout << "SP created " << this << std::endl;};
+        virtual int select(Simulation& sim, const Agent& agent);
+        virtual ~MandatesSelectionPolicy(){std::cout << "SP destroyed " << this << std::endl;};
 };
 
 class EdgeWeightSelectionPolicy: public SelectionPolicy
 {
     public:
-        EdgeWeightSelectionPolicy(){};
-        int select(Simulation& sim, const Agent& agent);
-        virtual ~EdgeWeightSelectionPolicy() = default;
+        EdgeWeightSelectionPolicy(){std::cout << "SP created " << this << std::endl;};
+        virtual int select(Simulation& sim, const Agent& agent);
+        virtual ~EdgeWeightSelectionPolicy(){std::cout << "SP destroyed " << this << std::endl;};
 };

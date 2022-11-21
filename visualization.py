@@ -44,10 +44,12 @@ def get_coalition(partyId, coalitions):
     return 'None'
 
 if __name__ == '__main__':
+    '''
     if len(sys.argv) != 2:
         print("Usage: python3 visualization.py <file_path>")
         exit(1)
-    file_path = sys.argv[1]
+    '''
+    file_path = "tests/solutions/01_sol.out"
     with open(file_path, 'r') as f:
         data = json.load(f)
 

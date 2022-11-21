@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Simulation.h"
 
 Simulation::Simulation(Graph graph, vector<Agent> agents) : mGraph(graph), mAgents(agents) , mCoalitions()
@@ -12,12 +13,14 @@ void Simulation::step()
     {
         p.step(*this);
     }
+    std::cout << "Parties step successful" << std::endl;
 
     //Agents Step
-    for(Agent a : mAgents)
+    for(int unsigned i=0; i < mAgents.size(); i++)
     {
-        a.step(*this);
+        mAgents[i].step(*this);
     }
+    std::cout << "Agents step successful" << std::endl;
 }
 
 bool Simulation::shouldTerminate() const
