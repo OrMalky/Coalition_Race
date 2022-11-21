@@ -8,6 +8,7 @@ class SelectionPolicy
 {
     public:
         virtual int select(Simulation& sim, const Agent& agent);
+        virtual ~SelectionPolicy() = default;
 };
 
 class MandatesSelectionPolicy: public SelectionPolicy

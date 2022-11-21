@@ -1,14 +1,14 @@
 #include "../include/Party.h"
 #include "../include/Simulation.h"
 
-Party::Party(int id, string name, int mandates, JoinPolicy *jp) : mId(id), mName(name), mMandates(mandates), mJoinPolicy(jp), mState(Waiting), timer(3)
+Party::Party(int id, string name, int mandates, JoinPolicy *jp) : mId(id), mName(name), mMandates(mandates), mJoinPolicy(jp), mState(Waiting), mTimer(3), mOffers()
 {
     // You can change the implementation of the constructor, but not the signature!
 }
 
-Party::Party(const Party& toClone) : mId(toClone.getGetId()), mName(toClone.getName()), mMandates(toClone.getMandates()), mState(Waiting), timer(3)
+Party::Party(const Party& toClone) : mId(toClone.getGetId()), mName(toClone.getName()), mMandates(toClone.getMandates()), mJoinPolicy(toClone.getJoinPolicy()), mState(Waiting), mTimer(3), mOffers()
 {
-    mJoinPolicy = toClone.getJoinPolicy();
+
 }
 
 Party& Party::operator=(const Party& other)
@@ -17,8 +17,9 @@ Party& Party::operator=(const Party& other)
     mName = other.getName();
     mMandates = other.getMandates();
     mJoinPolicy = other.getJoinPolicy();
-    timer = 3;
+    mTimer = 3;
     mState = Waiting;
+    return *this;
 }
 
 State Party::getState() const
@@ -48,14 +49,14 @@ int Party::getGetId() const
 
 void Party::joinCoalition(Simulation& sim)
 {
-    const Offer& toJoin = mJoinPolicy->join(sim, offers);
+    const Offer& toJoin = mJoinPolicy->join(sim, mOffers);
     sim.getCoalition(toJoin.getCoalitionId()).addParty(this);
     sim.cloneAgent(toJoin.getCoalitionId(), mId);
 }
 
 void Party::takeOffer(Offer offer)
 {
-    offers.push_back(offer);
+    mOffers.push_back(offer);
     if(mState == Waiting)
         mState = CollectingOffers;
 }
@@ -68,8 +69,8 @@ void Party::step(Simulation &s)
         break;
 
     case CollectingOffers:
-        timer -= 1;
-        if(timer == 0)
+        mTimer -= 1;
+        if(mTimer == 0)
             joinCoalition(s);
         break;
     

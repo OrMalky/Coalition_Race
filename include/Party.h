@@ -39,7 +39,7 @@ private:
     string mName;
     int mMandates;
     JoinPolicy *mJoinPolicy;
-    int timer;
     State mState;
-    vector<Offer> offers;
+    int mTimer;
+    vector<Offer> mOffers;
 };

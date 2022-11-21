@@ -11,6 +11,7 @@ class JoinPolicy
 {
     public:
         virtual Offer join(Simulation& sim, const vector<Offer>& offers) = 0;
+        virtual ~JoinPolicy() = default;
 };
 
 class MandatesJoinPolicy : public JoinPolicy
