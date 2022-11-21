@@ -61,6 +61,11 @@ void Party::takeOffer(Offer offer)
         mState = CollectingOffers;
 }
 
+JoinPolicy* Party::getJoinPolicy() const
+{
+    return mJoinPolicy;
+}
+
 void Party::step(Simulation &s)
 {
     switch (mState)

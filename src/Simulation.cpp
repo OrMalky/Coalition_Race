@@ -58,6 +58,11 @@ const Graph &Simulation::getGraph() const
     return mGraph;
 }
 
+Graph &Simulation::getGraph()
+{
+    return mGraph;
+}
+
 Coalition& Simulation::getCoalition(int id)
 {
     return mCoalitions[id];
