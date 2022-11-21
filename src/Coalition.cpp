@@ -1,4 +1,10 @@
 #include "../include/Coalition.h"
+#include <iostream>
+
+Coalition::Coalition(int id) : mId(id), mTotalMandates(0), mOfferedParties(), mParties()
+{
+
+}
 
 int Coalition::getTotalMandates() const
 {
@@ -13,9 +19,11 @@ void Coalition::addParty(Party* party)
 
 bool Coalition::checkOfferedParties(int partyId)
 {
-    for(Party* p : mOfferedParties)
+    std::cout << mParties.size() << std::endl;
+    for(int unsigned p=0; p < mParties.size(); p++)
     {
-        if(p->getGetId() == partyId)
+        std::cout << "db" << p << std::endl;
+        if(mParties[p]->getGetId() == partyId)
             return false;
     }
     return true;

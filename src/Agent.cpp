@@ -60,7 +60,7 @@ SelectionPolicy* Agent::getSelectionPolicy() const
 void Agent::step(Simulation &sim)
 {
     std::cout << "agent: " << this << " sp: " << mSelectionPolicy << " cast: " << reinterpret_cast<unsigned long*>(mSelectionPolicy)[0] << std::endl;
-    int toOffer = (*mSelectionPolicy).select(sim, *this);
+    int toOffer = mSelectionPolicy -> select(sim, *this);
     std::cout << "Used selection policy ok" << std::endl;
     if(toOffer > -1)
     {

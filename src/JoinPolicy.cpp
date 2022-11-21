@@ -1,6 +1,8 @@
 #include "../include/JoinPolicy.h"
 #include "../include/Simulation.h"
 
+MandatesJoinPolicy::MandatesJoinPolicy(){};
+
 Offer MandatesJoinPolicy::join(Simulation& sim, const vector<Offer>& offers)
 {
     int mostMandates = -1;
@@ -16,6 +18,8 @@ Offer MandatesJoinPolicy::join(Simulation& sim, const vector<Offer>& offers)
     }
     return *bestOffer;
 }
+
+LastOfferJoinPolicy::LastOfferJoinPolicy(){};
 
 Offer LastOfferJoinPolicy::join(Simulation& sim, const vector<Offer>& offers)
 {

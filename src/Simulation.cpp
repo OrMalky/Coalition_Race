@@ -4,6 +4,11 @@
 Simulation::Simulation(Graph graph, vector<Agent> agents) : mGraph(graph), mAgents(agents) , mCoalitions()
 {
     // You can change the implementation of the constructor, but not the signature!
+    for(Agent a: agents)
+    {
+        Coalition c(a.getId());
+        mCoalitions.push_back(c);
+    }
 }
 
 void Simulation::step()

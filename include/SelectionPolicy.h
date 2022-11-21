@@ -18,15 +18,17 @@ class SelectionPolicy
 class MandatesSelectionPolicy: public SelectionPolicy
 {
     public:
-        MandatesSelectionPolicy(){std::cout << "SP created " << this << std::endl;};
+        MandatesSelectionPolicy();
+        MandatesSelectionPolicy(const MandatesSelectionPolicy& toClone);
         virtual int select(Simulation& sim, const Agent& agent);
-        virtual ~MandatesSelectionPolicy(){std::cout << "SP destroyed " << this << std::endl;};
+        virtual ~MandatesSelectionPolicy();
 };
 
 class EdgeWeightSelectionPolicy: public SelectionPolicy
 {
     public:
-        EdgeWeightSelectionPolicy(){std::cout << "SP created " << this << std::endl;};
+        EdgeWeightSelectionPolicy();
+        EdgeWeightSelectionPolicy(const EdgeWeightSelectionPolicy& toClone);
         virtual int select(Simulation& sim, const Agent& agent);
-        virtual ~EdgeWeightSelectionPolicy(){std::cout << "SP destroyed " << this << std::endl;};
+        virtual ~EdgeWeightSelectionPolicy();
 };
