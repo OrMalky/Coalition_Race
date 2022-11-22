@@ -19,19 +19,17 @@ void Coalition::addParty(Party* party)
 
 bool Coalition::checkOfferedParties(int partyId)
 {
-    std::cout << mParties.size() << std::endl;
-    for(int unsigned p=0; p < mParties.size(); p++)
+    for(int p : mOfferedParties)
     {
-        std::cout << "db" << p << std::endl;
-        if(mParties[p]->getGetId() == partyId)
+        if(p == partyId)
             return false;
     }
     return true;
 }
 
-void Coalition::addPartyOffer(Party* party)
+void Coalition::addPartyOffer(int partyId)
 {
-    mOfferedParties.push_back(party);
+    mOfferedParties.push_back(partyId);
 }
 
 const vector<Party*> Coalition::getParties() const

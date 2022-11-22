@@ -8,7 +8,6 @@ MandatesSelectionPolicy::~MandatesSelectionPolicy(){std::cout << "Mandate SP des
 
 int MandatesSelectionPolicy::select(Simulation& sim, const Agent& agent)
 {
-    std::cout << "called policy ok" << std::endl;
     Graph& g = sim.getGraph();
     int mostMandates = 0;
     int bestParty = -1;
@@ -39,13 +38,13 @@ int EdgeWeightSelectionPolicy::select(Simulation& sim, const Agent& agent)
     for(int i=0; i<g.getNumVertices(); i++)
     {
         int currentWeight = g.getEdgeWeight(agent.getPartyId(), i);
-        std::cout << i  << " " << g.getNumVertices() << std::endl;
-        std::cout << sim.getCoalition(agent.getCoalitionId()).checkOfferedParties(i) << std::endl;
-        if(currentWeight > bestWeight && i != agent.getPartyId() && !sim.getCoalition(agent.getCoalitionId()).checkOfferedParties(i))
+        std::cout << "party: " << i << " weight: " << currentWeight << " offered: " << !sim.getCoalition(agent.getCoalitionId()).checkOfferedParties(i) << std::endl;
+        if(currentWeight > bestWeight && sim.getParty(i).getState() != Joined && sim.getCoalition(agent.getCoalitionId()).checkOfferedParties(i))
         {
             bestWeight = currentWeight;
             bestParty = i;
         }
     }
+    std::cout << "selected: " << bestParty << std::endl;
     return bestParty;
 }

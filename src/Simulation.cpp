@@ -7,6 +7,9 @@ Simulation::Simulation(Graph graph, vector<Agent> agents) : mGraph(graph), mAgen
     for(Agent a: agents)
     {
         Coalition c(a.getId());
+        Party* p = &getParty(a.getPartyId());
+        c.addParty(p);
+        c.addPartyOffer(p->getGetId());
         mCoalitions.push_back(c);
     }
 }
@@ -14,9 +17,9 @@ Simulation::Simulation(Graph graph, vector<Agent> agents) : mGraph(graph), mAgen
 void Simulation::step()
 {
     //Parties Step
-    for(Party p : mGraph.getParties())
+    for(int i = 0; i < mGraph.getNumVertices(); i++)
     {
-        p.step(*this);
+        mGraph.getParty(i).step(*this);
     }
     std::cout << "Parties step successful" << std::endl;
 
@@ -31,9 +34,9 @@ void Simulation::step()
 bool Simulation::shouldTerminate() const
 {
     //Is there a Coalition with 61 mandates or more?
-    for(Coalition c : mCoalitions)
+    for(int unsigned i=0; i<mCoalitions.size(); i++)
     {
-        if(c.getTotalMandates() >= 61)
+        if(mCoalitions[i].getTotalMandates() >= 61)
             return true;
     }
 

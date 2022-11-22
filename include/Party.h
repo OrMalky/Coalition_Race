@@ -3,12 +3,14 @@
 #include <vector>
 #include "Offer.h"
 #include "JoinPolicy.h"
+#include "Coalition.h"
 
 using std::string;
 using std::vector;
 
 class Simulation;
 class JoinPolicy;
+class Coalition;
 
 enum State
 {
@@ -30,7 +32,7 @@ public:
     int getGetId() const;
     void step(Simulation &s);
     const string &getName() const;
-    void takeOffer(Offer offer);
+    void takeOffer(Offer offer, Coalition& c);
     JoinPolicy* getJoinPolicy() const;
 
 private:

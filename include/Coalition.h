@@ -14,13 +14,13 @@ class Coalition
         int getTotalMandates() const;
         void addParty(Party* party);
         bool checkOfferedParties(int partyId);
-        void addPartyOffer(Party* party);
+        void addPartyOffer(int partyId);
         const vector<Party*> getParties() const;
         int getId() const;
     
     private:
         int mId;
         int mTotalMandates;
-        vector<Party*> mOfferedParties;
+        vector<int> mOfferedParties;
         vector<Party*> mParties;
 };

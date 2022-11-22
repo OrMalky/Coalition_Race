@@ -52,9 +52,10 @@ void Party::joinCoalition(Simulation& sim)
     const Offer& toJoin = mJoinPolicy->join(sim, mOffers);
     sim.getCoalition(toJoin.getCoalitionId()).addParty(this);
     sim.cloneAgent(toJoin.getCoalitionId(), mId);
+    std::cout << "joined coalition: " << toJoin.getCoalitionId() << std::endl;
 }
 
-void Party::takeOffer(Offer offer)
+void Party::takeOffer(Offer offer, Coalition& c)
 {
     mOffers.push_back(offer);
     if(mState == Waiting)
