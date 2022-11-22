@@ -1,14 +1,17 @@
 #include "../include/Party.h"
 #include "../include/Simulation.h"
+#include <iostream>
 
-Party::Party(int id, string name, int mandates, JoinPolicy *jp) : mId(id), mName(name), mMandates(mandates), mJoinPolicy(jp), mState(Waiting), mTimer(3), mOffers()
+Party::Party(int id, string name, int mandates, JoinPolicy *jp) : mId(id), mName(name), mMandates(mandates),
+    mJoinPolicy(jp), mState(Waiting), mTimer(3), mOffers()
 {
-    // You can change the implementation of the constructor, but not the signature!
+    std::cout << "party created " << mId  << " " << this << " JP: " << mJoinPolicy << std::endl;
 }
 
-Party::Party(const Party& toClone) : mId(toClone.getGetId()), mName(toClone.getName()), mMandates(toClone.getMandates()), mJoinPolicy(toClone.getJoinPolicy()), mState(Waiting), mTimer(3), mOffers()
+Party::Party(const Party& toClone) : mId(toClone.getGetId()), mName(toClone.getName()),
+    mMandates(toClone.getMandates()), mJoinPolicy(toClone.getJoinPolicy()->clone()), mState(Waiting), mTimer(3), mOffers()
 {
-
+    std::cout << "party copied " << mId  << " " << this << " JP: " << mJoinPolicy << std::endl;
 }
 
 Party& Party::operator=(const Party& other)
@@ -18,13 +21,15 @@ Party& Party::operator=(const Party& other)
     mMandates = other.getMandates();
     mJoinPolicy = other.getJoinPolicy();
     mTimer = 3;
-    mState = Waiting;
+    mState = other.getState();
     return *this;
 }
 
 Party::~Party()
 {
+    std::cout << "deleting jp in: " << mJoinPolicy << std::endl;
     delete mJoinPolicy;
+    std::cout << "deleted " << std::endl;
 }
 
 State Party::getState() const

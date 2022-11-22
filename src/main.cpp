@@ -41,6 +41,7 @@ int main(int argc, char **argv)
     std::ofstream outputFile(output_path);
     outputFile << std::setw(4) << json(outPerIter) << endl;
 
-    cout << "Simulation Done!" << endl;
+    cout << "*** SIMULATION DONE ***" << endl << endl;
+    cout << "destroying..." << endl;
     return 0;
 }

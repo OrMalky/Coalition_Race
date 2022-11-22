@@ -11,6 +11,7 @@ class JoinPolicy
 {
     public:
         virtual Offer join(Simulation& sim, const vector<Offer>& offers) = 0;
+        virtual JoinPolicy* clone() = 0;
         virtual ~JoinPolicy() = default;
 };
 
@@ -18,6 +19,7 @@ class MandatesJoinPolicy : public JoinPolicy
 {
     public:
         MandatesJoinPolicy();
+        virtual MandatesJoinPolicy* clone();
         Offer join(Simulation& sim, const vector<Offer>& offers);
         ~MandatesJoinPolicy() = default;
 };
@@ -26,6 +28,7 @@ class LastOfferJoinPolicy : public JoinPolicy
 {
     public:
         LastOfferJoinPolicy();
+        virtual LastOfferJoinPolicy* clone();
         Offer join(Simulation& sim, const vector<Offer>& offers);
         ~LastOfferJoinPolicy() = default;
 };

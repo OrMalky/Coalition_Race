@@ -12,6 +12,7 @@ class SelectionPolicy
 {
     public:
         virtual int select(Simulation& sim, const Agent& agent) = 0;
+        virtual SelectionPolicy* clone() = 0;
         virtual ~SelectionPolicy() = default;
 };
 
@@ -20,8 +21,9 @@ class MandatesSelectionPolicy: public SelectionPolicy
     public:
         MandatesSelectionPolicy();
         MandatesSelectionPolicy(const MandatesSelectionPolicy& toClone);
+        virtual MandatesSelectionPolicy* clone();
         virtual int select(Simulation& sim, const Agent& agent);
-        virtual ~MandatesSelectionPolicy();
+        virtual ~MandatesSelectionPolicy() = default;
 };
 
 class EdgeWeightSelectionPolicy: public SelectionPolicy
@@ -29,6 +31,7 @@ class EdgeWeightSelectionPolicy: public SelectionPolicy
     public:
         EdgeWeightSelectionPolicy();
         EdgeWeightSelectionPolicy(const EdgeWeightSelectionPolicy& toClone);
+        virtual EdgeWeightSelectionPolicy* clone();
         virtual int select(Simulation& sim, const Agent& agent);
-        virtual ~EdgeWeightSelectionPolicy();
+        virtual ~EdgeWeightSelectionPolicy() = default;
 };

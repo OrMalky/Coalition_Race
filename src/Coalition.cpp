@@ -6,6 +6,23 @@ Coalition::Coalition(int id) : mId(id), mTotalMandates(0), mOfferedParties(), mP
 
 }
 
+Coalition::Coalition(const Coalition& c) : mId(c.getId()), mTotalMandates(c.getTotalMandates()), mOfferedParties(), mParties()
+{
+    //duplicate mParties
+    //duplicate mOfferedParties
+}
+
+/*
+Coalition::~Coalition()
+{
+    for(int unsigned i=0; i < mParties.size(); i++)
+    {
+        std::cout << "deleting party " << i << std::endl;
+        delete mParties[i];
+    }
+}
+*/
+
 int Coalition::getTotalMandates() const
 {
     return mTotalMandates;

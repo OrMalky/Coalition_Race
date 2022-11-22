@@ -3,8 +3,11 @@
 #include <iostream>
 
 MandatesSelectionPolicy::MandatesSelectionPolicy(){std::cout << "Mandate SP created " << this << std::endl;}
-MandatesSelectionPolicy::MandatesSelectionPolicy(const MandatesSelectionPolicy& toClone){std::cout << "Mandate SP copied " << this << std::endl;}
-MandatesSelectionPolicy::~MandatesSelectionPolicy(){std::cout << "Mandate SP destroyed " << this << std::endl;}
+
+MandatesSelectionPolicy* MandatesSelectionPolicy::clone()
+{
+    return new MandatesSelectionPolicy;
+}
 
 int MandatesSelectionPolicy::select(Simulation& sim, const Agent& agent)
 {
@@ -27,8 +30,11 @@ int MandatesSelectionPolicy::select(Simulation& sim, const Agent& agent)
 }
 
 EdgeWeightSelectionPolicy::EdgeWeightSelectionPolicy(){std::cout << "Edge SP created " << this << std::endl;};
-EdgeWeightSelectionPolicy::EdgeWeightSelectionPolicy(const EdgeWeightSelectionPolicy& toClone){std::cout << "Edge SP copied " << this << std::endl;};
-EdgeWeightSelectionPolicy::~EdgeWeightSelectionPolicy(){std::cout << "Edge SP destroyed " << this << std::endl;}
+
+EdgeWeightSelectionPolicy* EdgeWeightSelectionPolicy::clone()
+{
+    return new EdgeWeightSelectionPolicy;
+}
 
 int EdgeWeightSelectionPolicy::select(Simulation& sim, const Agent& agent)
 {

@@ -1,7 +1,11 @@
 #include "../include/JoinPolicy.h"
 #include "../include/Simulation.h"
 
-MandatesJoinPolicy::MandatesJoinPolicy(){};
+MandatesJoinPolicy::MandatesJoinPolicy(){std::cout << "Mandates JP created " << this << std::endl;};
+MandatesJoinPolicy* MandatesJoinPolicy::clone()
+{
+    return new MandatesJoinPolicy;
+} 
 
 Offer MandatesJoinPolicy::join(Simulation& sim, const vector<Offer>& offers)
 {
@@ -19,7 +23,11 @@ Offer MandatesJoinPolicy::join(Simulation& sim, const vector<Offer>& offers)
     return *bestOffer;
 }
 
-LastOfferJoinPolicy::LastOfferJoinPolicy(){};
+LastOfferJoinPolicy::LastOfferJoinPolicy(){std::cout << "Last JP created " << this << std::endl;};
+LastOfferJoinPolicy* LastOfferJoinPolicy::clone()
+{
+    return new LastOfferJoinPolicy;
+}
 
 Offer LastOfferJoinPolicy::join(Simulation& sim, const vector<Offer>& offers)
 {

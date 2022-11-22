@@ -11,6 +11,8 @@ class Coalition
 {
     public:
         Coalition(int id);
+        Coalition(const Coalition& c);
+        //~Coalition();
         int getTotalMandates() const;
         void addParty(Party* party);
         bool checkOfferedParties(int partyId);
