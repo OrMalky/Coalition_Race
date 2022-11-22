@@ -33,10 +33,6 @@ int main(int argc, char **argv)
         outPerIter.push_back(Parser::makeJson(simulation));
         cout << "Output to parser successful." << endl;
         itr++;
-
-        std::cout << "Press Enter to continue...";
-        std::cin >> db;
-        std::cout << std::endl;
     }
 
     // writing the outputs list to a file
@@ -45,5 +41,6 @@ int main(int argc, char **argv)
     std::ofstream outputFile(output_path);
     outputFile << std::setw(4) << json(outPerIter) << endl;
 
+    cout << "Simulation Done!" << endl;
     return 0;
 }

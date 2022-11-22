@@ -3,11 +3,11 @@
 
 Simulation::Simulation(Graph graph, vector<Agent> agents) : mGraph(graph), mAgents(agents) , mCoalitions()
 {
-    // You can change the implementation of the constructor, but not the signature!
     for(Agent a: agents)
     {
         Coalition c(a.getId());
         Party* p = &getParty(a.getPartyId());
+        p->setState(Joined);
         c.addParty(p);
         c.addPartyOffer(p->getGetId());
         mCoalitions.push_back(c);

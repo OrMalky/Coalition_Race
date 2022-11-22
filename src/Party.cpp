@@ -51,6 +51,7 @@ void Party::joinCoalition(Simulation& sim)
 {
     const Offer& toJoin = mJoinPolicy->join(sim, mOffers);
     sim.getCoalition(toJoin.getCoalitionId()).addParty(this);
+    setState(Joined);
     sim.cloneAgent(toJoin.getCoalitionId(), mId);
     std::cout << "joined coalition: " << toJoin.getCoalitionId() << std::endl;
 }
