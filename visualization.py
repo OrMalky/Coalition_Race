@@ -49,7 +49,7 @@ if __name__ == '__main__':
         print("Usage: python3 visualization.py <file_path>")
         exit(1)
     '''
-    file_path = "tests/03_sol.out"
+    file_path = "tests/03.out"
     with open(file_path, 'r') as f:
         data = json.load(f)
 

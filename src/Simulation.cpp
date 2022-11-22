@@ -90,12 +90,12 @@ void Simulation::cloneAgent(int agentId, int partyId)
 const vector<vector<int>> Simulation::getPartiesByCoalitions() const
 {
     vector<vector<int>> partiesByCoalition;
-    for(Coalition c : mCoalitions)
+    for(int unsigned c = 0; c < mCoalitions.size(); c++)
     {
         vector<int> coalition;
-        for(Party* p : c.getParties())
+        for(int unsigned p = 0; p < mCoalitions[c].getParties().size(); p++)
         {
-            coalition.push_back((*p).getGetId());
+            coalition.push_back(mCoalitions[c].getParties()[p]->getGetId());
         }
         partiesByCoalition.push_back(coalition);
     }

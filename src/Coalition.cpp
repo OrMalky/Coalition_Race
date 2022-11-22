@@ -6,9 +6,8 @@ Coalition::Coalition(int id) : mId(id), mTotalMandates(0), mOfferedParties(), mP
 
 }
 
-Coalition::Coalition(const Coalition& c) : mId(c.getId()), mTotalMandates(c.getTotalMandates()), mOfferedParties(), mParties()
+Coalition::Coalition(const Coalition& c) : mId(c.getId()), mTotalMandates(c.getTotalMandates()), mOfferedParties(), mParties(c.getParties())
 {
-    //duplicate mParties
     //duplicate mOfferedParties
 }
 

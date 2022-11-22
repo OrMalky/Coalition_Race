@@ -5,18 +5,18 @@
 Agent::Agent(int agentId, int partyId, SelectionPolicy *selectionPolicy) :
     mAgentId(agentId), mPartyId(partyId), mSelectionPolicy(selectionPolicy), mCoalitionId(agentId)
 {
-    std::cout << "agent created " << mAgentId  << " " << this << " SP: " << mSelectionPolicy << std::endl;
+    std::cout << "agent created " << mAgentId  << " " << this << " SP: " << mSelectionPolicy << "coalition" << mCoalitionId << std::endl;
 }
 
 Agent::Agent(const Agent& toClone, int newId, int partyId) :
     mAgentId(newId), mPartyId(partyId), mSelectionPolicy(toClone.getSelectionPolicy()->clone()), mCoalitionId(toClone.getCoalitionId())
 {
-    std::cout << "agent created " << mAgentId  << " " << this << std::endl;
+    std::cout << "agent created " << mAgentId  << " " << this << "coalition" << mCoalitionId << std::endl;
 }
 
 Agent::Agent(const Agent& toClone) : mAgentId(toClone.getId()), mPartyId(toClone.getPartyId()), mSelectionPolicy(toClone.getSelectionPolicy()->clone()) ,mCoalitionId(toClone.getCoalitionId())
 {
-    std::cout << "agent copied " << mAgentId  << " " << this << " SP: " << mSelectionPolicy << std::endl;
+    std::cout << "agent copied " << mAgentId  << " " << this << " SP: " << mSelectionPolicy << "coalition" << mCoalitionId << std::endl;
 }
 
 Agent& Agent::operator=(const Agent& other)
