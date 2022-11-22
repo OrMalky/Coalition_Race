@@ -22,6 +22,11 @@ Party& Party::operator=(const Party& other)
     return *this;
 }
 
+Party::~Party()
+{
+    delete mJoinPolicy;
+}
+
 State Party::getState() const
 {
     return mState;

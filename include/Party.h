@@ -25,6 +25,7 @@ public:
     Party(int id, string name, int mandates, JoinPolicy *); 
     Party(const Party& toClone);
     Party& operator=(const Party& other);
+    ~Party();
 
     State getState() const;
     void setState(State state);

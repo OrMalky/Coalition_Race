@@ -34,7 +34,7 @@ Agent& Agent::operator=(const Agent& other)
 
 Agent::~Agent()
 {
-    delete mSelectionPolicy;
+    //delete mSelectionPolicy;
     std::cout << "agent deleted " << mAgentId  << " " << this <<" cast: " << reinterpret_cast<unsigned long*>(mSelectionPolicy)[0] << std::endl;
 }
 
