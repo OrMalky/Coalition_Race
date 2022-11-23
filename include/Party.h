@@ -22,10 +22,15 @@ enum State
 class Party
 {
 public:
-    Party(int id, string name, int mandates, JoinPolicy *); 
-    Party(const Party& toClone);
-    Party& operator=(const Party& other);
-    ~Party();
+    Party(int id, string name, int mandates, JoinPolicy *); //Constructor
+    Party(const Party& toClone);    //Copy Constructor
+    Party& operator=(const Party& other);   //Copy Assignemtn Operator
+    ~Party();   //Destructor
+
+    /*  Rule of 5 [not actually needed]
+    Party(Party&& p);   //Move Constructor
+    Party& operator=(Party&& p);    //Move Assignment Operator
+    */
 
     State getState() const;
     void setState(State state);

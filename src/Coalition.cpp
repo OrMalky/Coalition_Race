@@ -6,21 +6,45 @@ Coalition::Coalition(int id) : mId(id), mTotalMandates(0), mOfferedParties(), mP
 
 }
 
-Coalition::Coalition(const Coalition& c) : mId(c.getId()), mTotalMandates(c.getTotalMandates()), mOfferedParties(), mParties(c.getParties())
+Coalition::Coalition(const Coalition& c) : mId(c.getId()), mTotalMandates(c.getTotalMandates()), mOfferedParties(c.getOfferedParties()), mParties(c.getParties())
 {
-    //duplicate mOfferedParties
+    
+}
+
+
+Coalition& Coalition::operator=(const Coalition& other)
+{
+    mId = other.getId();
+    mParties = other.getParties();
+    mOfferedParties = other.getOfferedParties();
+    mTotalMandates = other.getTotalMandates();
+    return *this;
 }
 
 /*
-Coalition::~Coalition()
+Coalition::Coalition(Coalition&& c) : mId(c.getId()), mTotalMandates(c.getTotalMandates()), mOfferedParties(c.getOfferedParties()), mParties(c.getParties())
 {
-    for(int unsigned i=0; i < mParties.size(); i++)
+    c = Coalition(-1);
+}
+
+Coalition& Coalition::operator=(Coalition&& other)
+{
+    if(this != &other)
     {
-        std::cout << "deleting party " << i << std::endl;
-        delete mParties[i];
+        mId = other.getId();
+        mTotalMandates = other.getTotalMandates();
+        mOfferedParties = other.getOfferedParties();
+        mParties = other.getParties();
+        other = Coalition(-1);
     }
+    return *this;
 }
 */
+
+const vector<int> Coalition::getOfferedParties() const
+{
+    return mOfferedParties;
+}
 
 int Coalition::getTotalMandates() const
 {

@@ -10,11 +10,17 @@ class Simulation;
 class Agent
 {
 public:
-    Agent(int agentId, int partyId, SelectionPolicy *selectionPolicy);
-    Agent(const Agent& toClone, int newId, int partyId);
-    Agent(const Agent& toClone);
-    Agent& operator=(const Agent& other);
-    ~Agent();
+    Agent(int agentId, int partyId, SelectionPolicy *selectionPolicy);  //Constructor
+    Agent(const Agent& toClone, int newId, int partyId);    //Constructor [for coalition]
+    Agent(const Agent& toClone);    //Copy Constructor
+    Agent& operator=(const Agent& other);   //Assignment operator
+    ~Agent();   //Destructor
+
+    /*  Rule of 5 [not actually needed]
+    Agent(Agent&& a);   //Move Constructor
+    Agent& operator=(Agent&& other);    //Move Assignment Operator
+    */
+
     int getPartyId() const;
     int getId() const;
     void step(Simulation &);

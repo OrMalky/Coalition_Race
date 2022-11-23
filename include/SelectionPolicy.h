@@ -20,7 +20,7 @@ class MandatesSelectionPolicy: public SelectionPolicy
 {
     public:
         MandatesSelectionPolicy();
-        MandatesSelectionPolicy(const MandatesSelectionPolicy& toClone);
+        //MandatesSelectionPolicy(const MandatesSelectionPolicy& toClone);
         virtual MandatesSelectionPolicy* clone();
         virtual int select(Simulation& sim, const Agent& agent);
         virtual ~MandatesSelectionPolicy() = default;
@@ -30,7 +30,7 @@ class EdgeWeightSelectionPolicy: public SelectionPolicy
 {
     public:
         EdgeWeightSelectionPolicy();
-        EdgeWeightSelectionPolicy(const EdgeWeightSelectionPolicy& toClone);
+        //EdgeWeightSelectionPolicy(const EdgeWeightSelectionPolicy& toClone);
         virtual EdgeWeightSelectionPolicy* clone();
         virtual int select(Simulation& sim, const Agent& agent);
         virtual ~EdgeWeightSelectionPolicy() = default;

@@ -32,6 +32,30 @@ Party::~Party()
     std::cout << "deleted " << std::endl;
 }
 
+/*
+Party::Party(Party&& p) : mId(p.getGetId()), mName(p.getName()), mMandates(p.getMandates()), mJoinPolicy(p.getJoinPolicy()), mState(p.getState()), mTimer(3), mOffers()
+{
+    if(this != &p)
+        p = Party(-1, "", 0, nullptr);
+}
+
+Party& Party::operator=(Party&& p)
+{
+    if(this != &p)
+    {
+        mId = p.getGetId();
+        mName = p.getName();
+        mMandates = p.getMandates();
+        mJoinPolicy = p.getJoinPolicy();
+        mState = Waiting;
+        mTimer = 3;
+        mOffers = vector<Offer>();
+        p = Party(-1, "", 0, nullptr);
+    }
+    return *this;
+}
+*/
+
 State Party::getState() const
 {
     return mState;
