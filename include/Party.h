@@ -27,10 +27,10 @@ public:
     Party& operator=(const Party& other);   //Copy Assignemtn Operator
     ~Party();   //Destructor
 
-    /*  Rule of 5 [not actually needed]
+    //Rule of 5 [not actually needed]
     Party(Party&& p);   //Move Constructor
     Party& operator=(Party&& p);    //Move Assignment Operator
-    */
+    
 
     State getState() const;
     void setState(State state);
@@ -40,6 +40,7 @@ public:
     const string &getName() const;
     void takeOffer(Offer offer, Coalition& c);
     JoinPolicy* getJoinPolicy() const;
+    void nullify();
 
 private:
     void joinCoalition(Simulation& sim);

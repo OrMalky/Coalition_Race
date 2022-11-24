@@ -36,10 +36,10 @@ Agent::~Agent()
     std::cout << "agent deleted " << mAgentId  << " " << this << std::endl;
     
 }
-/*
-Agent::Agent(Agent&& a) : mAgentId(a.getId()), mPartyId(a.getPartyId()), mSelectionPolicy(a.getSelectionPolicy()->clone()) ,mCoalitionId(a.getCoalitionId())
+
+Agent::Agent(Agent&& a) : mAgentId(a.getId()), mPartyId(a.getPartyId()), mSelectionPolicy(a.getSelectionPolicy()) ,mCoalitionId(a.getCoalitionId())
 {
-    a = Agent(-1, -1, nullptr);
+    a.nullify();
 }
 
 Agent& Agent::operator=(Agent&& a)
@@ -50,11 +50,18 @@ Agent& Agent::operator=(Agent&& a)
         mPartyId = a.getPartyId();
         mSelectionPolicy = a.getSelectionPolicy();
         mCoalitionId = a.getCoalitionId();
-        a = Agent(-1, -1, nullptr);
+        a.nullify();
     }
     return *this;
 }
-*/
+
+void Agent::nullify()
+{
+    mAgentId = -1;
+    mPartyId = -1;
+    mSelectionPolicy = nullptr;
+    mCoalitionId = -1;
+}
 
 int Agent::getId() const
 {

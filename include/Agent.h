@@ -16,16 +16,16 @@ public:
     Agent& operator=(const Agent& other);   //Assignment operator
     ~Agent();   //Destructor
 
-    /*  Rule of 5 [not actually needed]
+    //Rule of 5 [not actually needed]
     Agent(Agent&& a);   //Move Constructor
     Agent& operator=(Agent&& other);    //Move Assignment Operator
-    */
 
     int getPartyId() const;
     int getId() const;
     void step(Simulation &);
     int getCoalitionId() const;
     SelectionPolicy* getSelectionPolicy() const;
+    void nullify();
 
 private:
     int mAgentId;
