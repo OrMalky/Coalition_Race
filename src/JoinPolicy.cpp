@@ -14,7 +14,7 @@ Offer MandatesJoinPolicy::join(Simulation& sim, const vector<Offer>& offers)
     for (Offer o : offers)
     {
         int currentMandates = sim.getCoalition(o.getCoalitionId()).getTotalMandates();
-        if(mostMandates < currentMandates)
+        if((mostMandates == currentMandates && o.getAgentId() < bestOffer->getAgentId()) || mostMandates < currentMandates)
         {
             mostMandates = currentMandates;
             bestOffer = &o;

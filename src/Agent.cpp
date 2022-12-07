@@ -89,7 +89,7 @@ void Agent::step(Simulation &sim)
     if(toOffer > -1)
     {
         std::cout << &sim.getParty(toOffer) << std::endl;
-        Offer newOffer(mCoalitionId);
+        Offer newOffer(mCoalitionId, mAgentId);
         sim.getParty(toOffer).takeOffer(newOffer, sim.getCoalition(mCoalitionId));
         sim.getCoalition(mCoalitionId).addPartyOffer(toOffer);
     }
