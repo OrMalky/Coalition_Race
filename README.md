@@ -28,21 +28,21 @@ As mentioned, each party has an offer and a join policy.
   * Most Simillar - Offer a coalition to the conneceted party with the highest similarity score.
 
 ## How To Run
-**Running**
+**Running**  
 The program will recieve a single command line argument, a path to a JSON file represnting the starting arrangment:
 ```
 bin/cRace <input file>
 ```
-**Visualization**
+**Visualization**  
 The program will create a .out file containing the entire simulation (as JSON).
 Visualization.py can be used to visualize the simulation based on this file.
-To see the visualization, run it with a signle command line argument, a path the the .out file.
+To see the visualization, run it with a signle command line argument, a path to the .out file.
 ```
 python3 visualization.py <output file>
 ```
 
 ## Use Example
-For convinient, there is a folder with ready to test JSON files, [tests](tests].
+For convinience, there is a folder with ready to test JSON files, [tests](tests).
 This folder contains a few tests, for each the following file:
   1. **x.json** - the test file, represnting the initial simulation state.
   2. **x.out** - the outputed solution file from the simulation, can be visualized using visualization.py.
