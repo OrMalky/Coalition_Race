@@ -1,5 +1,11 @@
 # Coalition Race (SPL1)
 
+## Project Objectives
+* Learn and practice memory managemnt in C++
+* Hands on expirience with Linux OS and WSL, and compiling for Linux using makefile
+* Practice Rule of 5 in C++
+* Experience debugging and finding memory leaks, and working with Valgrind
+
 ## Prologue
 In a faraway democracy, SPLand, there is a political crisis, they can't form a government in
 years. After 5 elections, the SPLand president decided to change the method of forming a coalition by
