@@ -2,7 +2,7 @@
 
 ## Project Objectives
 * Learn and practice memory managemnt in C++
-* Hands on expirience with Linux OS and WSL, and compiling for Linux using makefile
+* Hands on experience with Linux OS and WSL, and compiling for Linux using makefile
 * Practice Rule of 5 in C++
 * Experience debugging and finding memory leaks, and working with Valgrind
 
