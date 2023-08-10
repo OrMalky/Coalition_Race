@@ -6,6 +6,14 @@
 * Practice Rule of 5 in C++
 * Experience debugging and finding memory leaks, and working with Valgrind
 
+## Table of Contents
+* [Prologue](#prologue)
+* [The Simulation](#the-simulation)
+* [How To Run](#how-to-run)
+* [Use Example](#use-example)
+* [How It Works](#how-it-works)
+* [About](#about)
+
 ## Prologue
 In a faraway democracy, SPLand, there is a political crisis, they can't form a government in
 years. After 5 elections, the SPLand president decided to change the method of forming a coalition by
