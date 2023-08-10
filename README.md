@@ -20,9 +20,11 @@ Parties can either be connected if they are somewhat simillar, then having simil
 
 ### Offer and Join Policies:
 As mentioned, each party has an offer and a join policy.  
+
 **Join Policies:**
   * Most Mandates - Accept the offer of the party with the most mandates.
-  * Most Recent - Accept the most recent offer.  
+  * Most Recent - Accept the most recent offer.
+
 **Offer Policies:**
   * Most Mandates - Offer a coalition to the connected party with the most mandates (that was not already offered).
   * Most Simillar - Offer a coalition to the conneceted party with the highest similarity score.
